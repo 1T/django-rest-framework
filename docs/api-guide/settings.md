@@ -234,6 +234,28 @@ Default:
 
 ---
 
+## Schema generation controls
+
+#### SCHEMA_COERCE_PATH_PK
+
+If set, this maps the `'pk'` identifier in the URL conf onto the actual field
+name when generating a schema path parameter. Typically this will be `'id'`.
+This gives a more suitable representation as "primary key" is an implementation
+detail, whereas "identifier" is a more general concept.
+
+Default: `True`
+
+#### SCHEMA_COERCE_METHOD_NAMES
+
+If set, this is used to map internal viewset method names onto external action
+names used in the schema generation. This allows us to generate names that
+are more suitable for an external representation than those that are used
+internally in the codebase.
+
+Default: `{'retrieve': 'read', 'destroy': 'delete'}`
+
+---
+
 ## Content type controls
 
 #### URL_FORMAT_OVERRIDE
@@ -382,6 +404,22 @@ This should be a function with the following signature:
 
 Default: `'rest_framework.views.get_view_description'`
 
+## HTML Select Field cutoffs
+
+Global settings for [select field cutoffs for rendering relational fields](relations.md#select-field-cutoffs) in the browsable API.
+
+#### HTML_SELECT_CUTOFF
+
+Global setting for the `html_cutoff` value.  Must be an integer.
+
+Default: 1000
+
+#### HTML_SELECT_CUTOFF_TEXT
+
+A string representing a global setting for `html_cutoff_text`.
+
+Default: `"More than {count} items..."`
+
 ---
 
 ## Miscellaneous settings
@@ -418,7 +456,7 @@ An integer of 0 or more, that may be used to specify the number of application p
 
 Default: `None`
 
-[cite]: http://www.python.org/dev/peps/pep-0020/
+[cite]: https://www.python.org/dev/peps/pep-0020/
 [rfc4627]: http://www.ietf.org/rfc/rfc4627.txt
 [heroku-minified-json]: https://github.com/interagent/http-api-design#keep-json-minified-in-all-responses
-[strftime]: http://docs.python.org/2/library/time.html#time.strftime
+[strftime]: https://docs.python.org/3/library/time.html#time.strftime

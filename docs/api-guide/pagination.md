@@ -276,6 +276,12 @@ To have your custom pagination class be used by default, use the `DEFAULT_PAGINA
 
 API responses for list endpoints will now include a `Link` header, instead of including the pagination links as part of the body of the response, for example:
 
+## Pagination & schemas
+
+You can also make the pagination controls available to the schema autogeneration
+that REST framework provides, by implementing a `get_schema_fields()` method,
+which should return a list of `coreapi.Field` instances.
+
 ---
 
 ![Link Header][link-header]
@@ -315,9 +321,14 @@ The following third party packages are also available.
 
 The [`DRF-extensions` package][drf-extensions] includes a [`PaginateByMaxMixin` mixin class][paginate-by-max-mixin] that allows your API clients to specify `?page_size=max` to obtain the maximum allowed page size.
 
-[cite]: https://docs.djangoproject.com/en/dev/topics/pagination/
+## drf-proxy-pagination
+
+The [`drf-proxy-pagination` package][drf-proxy-pagination] includes a `ProxyPagination` class which allows to choose pagination class with a query parameter.
+
+[cite]: https://docs.djangoproject.com/en/stable/topics/pagination/
 [github-link-pagination]: https://developer.github.com/guides/traversing-with-pagination/
 [link-header]: ../img/link-header-pagination.png
 [drf-extensions]: http://chibisov.github.io/drf-extensions/docs/
 [paginate-by-max-mixin]: http://chibisov.github.io/drf-extensions/docs/#paginatebymaxmixin
+[drf-proxy-pagination]: https://github.com/tuffnatty/drf-proxy-pagination
 [disqus-cursor-api]: http://cramer.io/2011/03/08/building-cursors-for-the-disqus-api

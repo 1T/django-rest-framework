@@ -14,7 +14,7 @@ First, let's add a couple of fields.  One of those fields will be used to repres
 
 Add the following two fields to the `Snippet` model in `models.py`.
 
-    owner = models.ForeignKey('auth.User', related_name='snippets')
+    owner = models.ForeignKey('auth.User', related_name='snippets', on_delete=models.CASCADE)
     highlighted = models.TextField()
 
 We'd also need to make sure that when the model is saved, that we populate the highlighted field, using the `pygments` code highlighting library.
@@ -150,7 +150,7 @@ The `r'^api-auth/'` part of pattern can actually be whatever URL you want to use
 
 Now if you open up the browser again and refresh the page you'll see a 'Login' link in the top right of the page.  If you log in as one of the users you created earlier, you'll be able to create code snippets again.
 
-Once you've created a few code snippets, navigate to the '/users/' endpoint, and notice that the representation includes a list of the snippet pks that are associated with each user, in each user's 'snippets' field.
+Once you've created a few code snippets, navigate to the '/users/' endpoint, and notice that the representation includes a list of the snippet ids that are associated with each user, in each user's 'snippets' field.
 
 ## Object level permissions
 
@@ -209,7 +209,7 @@ We can make a successful request by including the username and password of one o
     http -a tom:password123 POST http://127.0.0.1:8000/snippets/ code="print 789"
 
     {
-        "id": 5,
+        "id": 1,
         "owner": "tom",
         "title": "foo",
         "code": "print 789",

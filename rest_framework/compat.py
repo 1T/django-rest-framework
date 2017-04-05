@@ -17,10 +17,15 @@ from django.template import Context, RequestContext, Template
 from django.utils import six
 from django.views.generic import View
 
+
 try:
-    import importlib  # Available in Python 3.1+
+    from django.urls import (
+        NoReverseMatch, RegexURLPattern, RegexURLResolver, ResolverMatch, Resolver404, get_script_prefix, reverse, reverse_lazy, resolve
+    )
 except ImportError:
-    from django.utils import importlib  # Will be removed in Django 1.9
+    from django.core.urlresolvers import (  # Will be removed in Django 2.0
+        NoReverseMatch, RegexURLPattern, RegexURLResolver, ResolverMatch, Resolver404, get_script_prefix, reverse, reverse_lazy, resolve
+    )
 
 
 try:
@@ -128,6 +133,12 @@ def is_authenticated(user):
     return user.is_authenticated
 
 
+def is_anonymous(user):
+    if django.VERSION < (1, 10):
+        return user.is_anonymous()
+    return user.is_anonymous
+
+
 def get_related_model(field):
     if django.VERSION < (1, 9):
         return _resolve_model(field.rel.to)
@@ -154,6 +165,23 @@ except ImportError:
     JSONField = None
 
 
+# coreapi is optional (Note that uritemplate is a dependency of coreapi)
+try:
+    import coreapi
+    import uritemplate
+except (ImportError, SyntaxError):
+    # SyntaxError is possible under python 3.2
+    coreapi = None
+    uritemplate = None
+
+
+# coreschema is optional
+try:
+    import coreschema
+except ImportError:
+    coreschema = None
+
+
 # django-filter is optional
 try:
     import django_filters
@@ -168,14 +196,11 @@ except ImportError:
     crispy_forms = None
 
 
-# coreapi is optional (Note that uritemplate is a dependency of coreapi)
+# requests is optional
 try:
-    import coreapi
-    import uritemplate
-except (ImportError, SyntaxError):
-    # SyntaxError is possible under python 3.2
-    coreapi = None
-    uritemplate = None
+    import requests
+except ImportError:
+    requests = None
 
 
 # Django-guardian is optional. Import only if guardian is in INSTALLED_APPS
@@ -184,7 +209,6 @@ guardian = None
 try:
     if 'guardian' in settings.INSTALLED_APPS:
         import guardian
-        import guardian.shortcuts  # Fixes #1624
 except ImportError:
     pass
 
@@ -200,8 +224,13 @@ try:
 
     if markdown.version <= '2.2':
         HEADERID_EXT_PATH = 'headerid'
-    else:
+        LEVEL_PARAM = 'level'
+    elif markdown.version < '2.6':
         HEADERID_EXT_PATH = 'markdown.extensions.headerid'
+        LEVEL_PARAM = 'level'
+    else:
+        HEADERID_EXT_PATH = 'markdown.extensions.toc'
+        LEVEL_PARAM = 'baselevel'
 
     def apply_markdown(text):
         """
@@ -211,7 +240,7 @@ try:
         extensions = [HEADERID_EXT_PATH]
         extension_configs = {
             HEADERID_EXT_PATH: {
-                'level': '2'
+                LEVEL_PARAM: '2'
             }
         }
         md = markdown.Markdown(
@@ -220,7 +249,31 @@ try:
         return md.convert(text)
 except ImportError:
     apply_markdown = None
+    markdown = None
 
+
+try:
+    import pygments
+    from pygments.lexers import get_lexer_by_name
+    from pygments.formatters import HtmlFormatter
+
+    def pygments_highlight(text, lang, style):
+        lexer = get_lexer_by_name(lang, stripall=False)
+        formatter = HtmlFormatter(nowrap=True, style=style)
+        return pygments.highlight(text, lexer, formatter)
+
+    def pygments_css(style):
+        formatter = HtmlFormatter(style=style)
+        return formatter.get_style_defs('.highlight')
+
+except ImportError:
+    pygments = None
+
+    def pygments_highlight(text, lang, style):
+        return text
+
+    def pygments_css(style):
+        return None
 
 # `separators` argument to `json.dumps()` differs between 2.x and 3.x
 # See: http://bugs.python.org/issue22767
@@ -277,3 +330,18 @@ def template_render(template, context=None, request=None):
     # backends template, e.g. django.template.backends.django.Template
     else:
         return template.render(context, request=request)
+
+
+def set_many(instance, field, value):
+    if django.VERSION < (1, 10):
+        setattr(instance, field, value)
+    else:
+        field = getattr(instance, field)
+        field.set(value)
+
+def include(module, namespace=None, app_name=None):
+    from django.conf.urls import include
+    if django.VERSION < (1,9):
+        return include(module, namespace, app_name)
+    else:
+        return include((module, app_name), namespace)

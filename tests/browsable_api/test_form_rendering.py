@@ -11,6 +11,7 @@ factory = APIRequestFactory()
 class BasicSerializer(serializers.ModelSerializer):
     class Meta:
         model = BasicModel
+        fields = '__all__'
 
 
 class ManyPostView(generics.GenericAPIView):
@@ -49,5 +50,5 @@ class TestManyPostView(TestCase):
         request = factory.post('/', data, format='json')
         with self.assertNumQueries(1):
             response = self.view(request).render()
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(len(response.data), 3)
+        assert response.status_code == status.HTTP_200_OK
+        assert len(response.data) == 3

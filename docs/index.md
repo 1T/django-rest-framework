@@ -67,17 +67,19 @@ REST framework is a *collaboratively funded project*. If you use
 REST framework commercially we strongly encourage you to invest in its
 continued development by **[signing up for a paid plan][funding]**.
 
-The initial aim is to provide a single full-time position on REST framework.
-*Every single sign-up makes a significant impact towards making that possible.*
+*Every single sign-up helps us make REST framework long-term financially sustainable.*
 
 <ul class="premium-promo promo">
     <li><a href="http://jobs.rover.com/" style="background-image: url(https://fund-rest-framework.s3.amazonaws.com/rover_130x130.png)">Rover.com</a></li>
     <li><a href="https://getsentry.com/welcome/" style="background-image: url(https://fund-rest-framework.s3.amazonaws.com/sentry130.png)">Sentry</a></li>
-    <li><a href="https://getstream.io/?utm_source=drf&utm_medium=banner&utm_campaign=drf" style="background-image: url(https://fund-rest-framework.s3.amazonaws.com/stream-130.png)">Stream</a></li>
+    <li><a href="https://getstream.io/try-the-api/?utm_source=drf&utm_medium=banner&utm_campaign=drf" style="background-image: url(https://fund-rest-framework.s3.amazonaws.com/stream-130.png)">Stream</a></li>
+    <li><a href="https://hello.machinalis.co.uk/" style="background-image: url(https://fund-rest-framework.s3.amazonaws.com/Machinalis130.png)">Machinalis</a></li>
+    <li><a href="https://rollbar.com" style="background-image: url(https://fund-rest-framework.s3.amazonaws.com/rollbar.png)">Rollbar</a></li>
+    <li><a href="https://micropyramid.com/django-rest-framework-development-services/" style="background-image: url(https://fund-rest-framework.s3.amazonaws.com/mp-text-logo.png)">MicroPyramid</a></li>
 </ul>
 <div style="clear: both; padding-bottom: 20px;"></div>
 
-*Many thanks to all our [wonderful sponsors][sponsors], and in particular to our premium backers, [Rover](http://jobs.rover.com/), [Sentry](https://getsentry.com/welcome/), and [Stream](https://getstream.io/?utm_source=drf&utm_medium=banner&utm_campaign=drf).*
+*Many thanks to all our [wonderful sponsors][sponsors], and in particular to our premium backers, [Rover](http://jobs.rover.com/), [Sentry](https://getsentry.com/welcome/), [Stream](https://getstream.io/?utm_source=drf&utm_medium=banner&utm_campaign=drf), [Machinalis](https://hello.machinalis.co.uk/), [Rollbar](https://rollbar.com), and [MicroPyramid](https://micropyramid.com/django-rest-framework-development-services/).*
 
 ---
 
@@ -92,7 +94,7 @@ The following packages are optional:
 
 * [coreapi][coreapi] (1.32.0+) - Schema generation support.
 * [Markdown][markdown] (2.1.0+) - Markdown support for the browsable API.
-* [django-filter][django-filter] (0.9.2+) - Filtering support.
+* [django-filter][django-filter] (1.0.1+) - Filtering support.
 * [django-crispy-forms][django-crispy-forms] - Improved HTML display for filtering.
 * [django-guardian][django-guardian] (1.1.1+) - Object level permissions support.
 
@@ -235,7 +237,8 @@ General guides to using REST framework.
 * [Browser enhancements][browser-enhancements]
 * [The Browsable API][browsableapi]
 * [REST, Hypermedia & HATEOAS][rest-hypermedia-hateoas]
-* [Third Party Resources][third-party-resources]
+* [Third Party Packages][third-party-packages]
+* [Tutorials and Resources][tutorials-and-resources]
 * [Contributing to REST framework][contributing]
 * [Project management][project-management]
 * [3.0 Announcement][3.0-announcement]
@@ -243,10 +246,13 @@ General guides to using REST framework.
 * [3.2 Announcement][3.2-announcement]
 * [3.3 Announcement][3.3-announcement]
 * [3.4 Announcement][3.4-announcement]
+* [3.5 Announcement][3.5-announcement]
+* [3.6 Announcement][3.6-announcement]
 * [Kickstarter Announcement][kickstarter-announcement]
 * [Mozilla Grant][mozilla-grant]
 * [Funding][funding]
 * [Release Notes][release-notes]
+* [Jobs][jobs]
 
 ## Development
 
@@ -258,7 +264,7 @@ Framework.
 
 For support please see the [REST framework discussion group][group], try the  `#restframework` channel on `irc.freenode.net`, search [the IRC archives][botbot], or raise a  question on [Stack Overflow][stack-overflow], making sure to include the ['django-rest-framework'][django-rest-framework-tag] tag.
 
-[Paid support is available][paid-support] from [DabApps][dabapps], and can include work on REST framework core, or support with building your REST framework API.  Please [contact DabApps][contact-dabapps] if you'd like to discuss commercial support options.
+For priority support please sign up for a [professional or premium sponsorship plan](https://fund.django-rest-framework.org/topics/funding/).
 
 For updates on REST framework development, you may also want to follow [the author][twitter] on Twitter.
 
@@ -273,7 +279,7 @@ Send a description of the issue via email to [rest-framework-security@googlegrou
 
 ## License
 
-Copyright (c) 2011-2016, Tom Christie
+Copyright (c) 2011-2017, Tom Christie
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
@@ -363,16 +369,20 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 [rest-hypermedia-hateoas]: topics/rest-hypermedia-hateoas.md
 [contributing]: topics/contributing.md
 [project-management]: topics/project-management.md
-[third-party-resources]: topics/third-party-resources.md
+[third-party-packages]: topics/third-party-packages.md
+[tutorials-and-resources]: topics/tutorials-and-resources.md
 [3.0-announcement]: topics/3.0-announcement.md
 [3.1-announcement]: topics/3.1-announcement.md
 [3.2-announcement]: topics/3.2-announcement.md
 [3.3-announcement]: topics/3.3-announcement.md
 [3.4-announcement]: topics/3.4-announcement.md
+[3.5-announcement]: topics/3.5-announcement.md
+[3.6-announcement]: topics/3.6-announcement.md
 [kickstarter-announcement]: topics/kickstarter-announcement.md
 [mozilla-grant]: topics/mozilla-grant.md
 [funding]: topics/funding.md
 [release-notes]: topics/release-notes.md
+[jobs]: topics/jobs.md
 
 [tox]: http://testrun.org/tox/latest/
 

@@ -23,10 +23,13 @@ The initial aim is to provide a single full-time position on REST framework.
 <p align="center">
   <a href="http://jobs.rover.com/"><img src="https://raw.githubusercontent.com/tomchristie/django-rest-framework/master/docs/img/premium/rover-readme.png"/></a>
   <a href="https://getsentry.com/welcome/"><img src="https://raw.githubusercontent.com/tomchristie/django-rest-framework/master/docs/img/premium/sentry-readme.png"/></a>
-  <a href="https://getstream.io/?utm_source=drf&utm_medium=banner&utm_campaign=drf"><img src="https://raw.githubusercontent.com/tomchristie/django-rest-framework/master/docs/img/premium/stream-readme.png"/></a>
+  <a href="https://getstream.io/try-the-api/?utm_source=drf&utm_medium=banner&utm_campaign=drf"><img src="https://raw.githubusercontent.com/tomchristie/django-rest-framework/master/docs/img/premium/stream-readme.png"/></a>
+  <a href="https://hello.machinalis.co.uk/"><img src="https://raw.githubusercontent.com/tomchristie/django-rest-framework/master/docs/img/premium/machinalis-readme.png"/></a>
+  <a href="https://rollbar.com/"><img src="https://raw.githubusercontent.com/tomchristie/django-rest-framework/master/docs/img/premium/rollbar-readme.png"/></a>
+  <a href="https://micropyramid.com/django-rest-framework-development-services/"><img src="https://raw.githubusercontent.com/tomchristie/django-rest-framework/master/docs/img/premium/micropyramid-readme.png"/></a>
 </p>
 
-*Many thanks to all our [wonderful sponsors][sponsors], and in particular to our premium backers, [Rover](http://jobs.rover.com/), [Sentry](https://getsentry.com/welcome/), and [Stream](https://getstream.io/?utm_source=drf&utm_medium=banner&utm_campaign=drf).*
+*Many thanks to all our [wonderful sponsors][sponsors], and in particular to our premium backers, [Rover](http://jobs.rover.com/), [Sentry](https://getsentry.com/welcome/), [Stream](https://getstream.io/?utm_source=drf&utm_medium=banner&utm_campaign=drf), [Machinalis](https://hello.machinalis.co.uk/), [Rollbar](https://rollbar.com), and [MicroPyramid](https://micropyramid.com/django-rest-framework-development-services/).*
 
 ---
 
@@ -169,7 +172,7 @@ You may also want to [follow the author on Twitter][twitter].
 
 # Security
 
-If you believe you’ve found something in Django REST framework which has security implications, please **do not raise the issue in a public forum**.
+If you believe you've found something in Django REST framework which has security implications, please **do not raise the issue in a public forum**.
 
 Send a description of the issue via email to [rest-framework-security@googlegroups.com][security-mail].  The project maintainers will then work with you to resolve any issues where required, prior to any public disclosure.
 
